@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('status');
-    }
 
     public function index()
     {
@@ -403,7 +398,7 @@ class PostController extends Controller
         $picture = $request -> picture ;
         $Inherited = $request -> Inherited ;
 
-        if ($Inherited == 'سردسته'){
+        if ($Inherited == 'masterCat'){
             $statusMaster = 'yes';
         }else{
             $statusMaster = 'no';
@@ -437,20 +432,20 @@ class PostController extends Controller
     public function blog()
     {
         $allPosts = Post::all()->sortByDesc('id');
-        return view('customer.runy.post.blog' , compact('allPosts'));
+        return view('customer.stone-en.post.blog' , compact('allPosts'));
     }
 
     public function showId()
     {
         $post_id = $_REQUEST['id'];
         $id = Post::where('id',$post_id)->first();
-        return view('customer.runy.post.showPost' , compact('id'));
+        return view('customer.stone-en.post.showPost' , compact('id'));
     }
 
     public function showSlug(Post $post)
     {
         $id = $post;
-        return view('customer.runy.post.showPost' , compact('id'));
+        return view('customer.stone-en.post.showPost' , compact('id'));
     }
 
     public function showCat()
@@ -459,7 +454,7 @@ class PostController extends Controller
         $id = CategoryPost::where('id' , $cat_id)->first();
         $posts = Post::where('category_id' , $cat_id ) -> get();
 
-        return view('customer.runy.post.archivePost' , compact('id' , 'posts'));
+        return view('customer.stone-en.post.archivePost' , compact('id' , 'posts'));
 
     }
 

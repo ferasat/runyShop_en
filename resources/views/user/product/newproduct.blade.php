@@ -38,13 +38,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="text-muted">نام محصول </h6>
+                        <h6 class="text-muted">Product Name :</h6>
                         <p class="text-muted m-b-15">
                             نام محصول را در 175 واژه بنویسید :
                         </p>
                         <input type="text" class="form-control" maxlength="175" name="name" required/>
                         <p class="text-muted m-b-15">
-                            لینک محصول :
+                            slug :
                         </p>
                         <input type="text" class="form-control" maxlength="175" name="slug"/>
                     </div>
@@ -61,6 +61,7 @@
             </div>
 
         </div>
+        {{-- برای نمایش  محصولات عادی
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -153,9 +154,30 @@
                 </div>
             </div>
         </div>
+        --}}
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted">ADVANTAGES </h6>
+                        <textarea name="description" id="description"
+                                  class="summernote"></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted">FINISHES </h6>
+                        <textarea name="description2" id="description2"
+                                  class="summernote"></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">تصویر محصول</h4>
@@ -173,66 +195,25 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-8">
-                <div class="card">
+            <div class="col-6">
+                <div class="card m-b-30">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">گالری تصاویر محصول</h4>
-                        <p class="text-muted m-b-10">
-                            تصاویر محصول را بهتر است که در ابعاد 800*800 پیکسل (بصورت مربعی) بارگذاری کنید .
+                        <h4 class="mt-0 header-title">تصویر پسزمینه محصول :</h4>
+                        <p class="text-muted m-b-30">
+                            تصویر محصول را بهتر است که در ابعاد 800*1500 پیکسل  بارگزاری کنید .
                         </p>
 
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 1
-                                </p>
-                                <div class="fallback">
-                                    <input name="gallery1" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 1">
-                                </div>
+                        <div class="m-b-30">
 
-                            </div>
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 2
-                                </p>
-                                <div class="fallback">
-                                    <input name="gallery2" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 2">
-                                </div>
-
-                            </div>
-
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 3
-                                </p>
-                                <div class="fallback">
-                                    <input name="gallery3" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 3">
-                                </div>
-
+                            <div class="fallback">
+                                <input name="bgProduct" type="file" class="form-control">
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="text-muted">توضیحات کامل برای محصول </h6>
-                        <textarea name="description" id="description"
-                                  class="summernote">توضیحاتی چند خطی برای محصول</textarea>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
+            <div class="col-6">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">دستبندی محصول</h4>
@@ -259,7 +240,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-6">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">سئو : (این بخش اختیاری هست)</h4>
@@ -307,9 +288,9 @@
                             <div class="col-sm-2 col-form-label ">در چه وضعیتی منشر شود :</div>
                             <div class="col-sm-10">
                                 <select class="custom-select" name="statusPublish" required>
-                                    <option value="انتشار" selected>انتشار</option>
-                                    <option value="برای بررسی">برای بررسی</option>
-                                    <option value="پیش نویس">پیش نویس</option>
+                                    <option value="publish" selected>انتشار</option>
+                                    <option value="forCheck">برای بررسی</option>
+                                    <option value="draft">پیش نویس</option>
                                 </select>
                             </div>
                         </div>

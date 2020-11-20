@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('status');
-    }
+
     public function index()
     {
         $allProducts = Product::all()->sortByDesc('id');
@@ -34,9 +30,9 @@ class ProductController extends Controller
     {
         $categoris = CategoryProduct::all();
         $editor = true;
-        $dropzone = true;
+//        $dropzone = false;
         $titlePage = 'محصول جدید';
-        return view('user.product.newproduct', compact('categoris', 'editor', 'dropzone' , 'titlePage'));
+        return view('user.product.newproduct', compact('categoris', 'editor', 'titlePage'));
     }
 
     public function store(Request $request)
@@ -71,6 +67,7 @@ class ProductController extends Controller
         $newProduct->user_id = $user_id;
         $newProduct->short = $request->short;
         $newProduct->description = $request->description;
+        $newProduct->description2 = $request->description2;
         $newProduct->picture = $request->picture;
         $newProduct->purchasePrice = $request->purchasePrice;
         $newProduct->price = $request->price;
@@ -110,6 +107,26 @@ class ProductController extends Controller
         } else {
             $newProduct->picture = null;
         }
+
+        if ($request->bgProduct !== null) {
+            $file = new FileManager();
+            $file->filename = $request->name;
+            $file->user_id = $user_id;
+            $file->description = $request->metaDescription;
+            $file->save();
+            $filename = $request->uniqid . $file->id . '.' . $request->file('bgProduct')->getClientOriginalExtension();
+            $pathAdress = "uploads/" . date("Y", $mytime) . "/picture/user_" . $user_id;
+            $request->file('bgProduct')->move(public_path($pathAdress), $filename);
+            $file->path = $pathAdress . '/' . $filename;
+            $path_bgProduct = $pathAdress . '/' . $filename;
+            $file->save();
+
+            $newProduct->bgProduct = $path_bgProduct;
+        } else {
+            $newProduct->bgProduct = null;
+        }
+
+
         $newProduct->save();
 
         $x = 1;
@@ -237,7 +254,7 @@ class ProductController extends Controller
 
     public function update(Request $request)
     {
-        //dd($request);
+        //dd($request->all());
         $product_id = $request->product_id;
         $galleryPics = $request->galleryPics;
         $user_id = Auth::user()->id;
@@ -277,6 +294,7 @@ class ProductController extends Controller
         $product->customShow = $request->customShow;
         $product->short = $request->short;
         $product->description = $request->description;
+        $product->description2 = $request->description2;
         $product->gallery = $request->gallery;
         $product->purchasePrice = $request->purchasePrice;
         $product->price = $request->price;
@@ -299,6 +317,7 @@ class ProductController extends Controller
         $product->slug = $slug;
         $product->metaDescription = $request->metaDescription;
         $product->statusComment = $request->statusComment;
+
         if ( isset($request->picture)){
             $file = new FileManager();
             $file->filename = $request->name;
@@ -313,6 +332,25 @@ class ProductController extends Controller
             $file->save();
 
             $product->picture = $path_picture;
+        }else{
+            var_dump('No chenge');
+        }
+
+        if ( isset($request->bgProduct)){
+            $file = new FileManager();
+            $file->filename = 'bgProduct'.$request->name;
+            $file->user_id = $user_id;
+            $file->description = $request->metaDescription;
+            $file->save();
+            $filename = $request->uniqid . $file->id . '.' . $request->file('bgProduct')->getClientOriginalExtension();
+            $pathAdress = "uploads/" . date("Y", $mytime) . "/picture/user_" . $user_id;
+            $request->file('bgProduct')->move(public_path($pathAdress), $filename);
+            $file->path = $pathAdress . '/' . $filename;
+            $path_bgProduct = $pathAdress . '/' . $filename;
+            $file->save();
+
+            $product->bgProduct = $path_bgProduct;
+
         }else{
             var_dump('No chenge');
         }
@@ -419,7 +457,7 @@ class ProductController extends Controller
         $copyProduct->source = $id->source;
         $copyProduct->category = $id->category;
         $copyProduct->tag = $id->tag;
-        $copyProduct->statusPublish = 'پیش نویس';
+        $copyProduct->statusPublish = 'draft';
         $copyProduct->focusKeyword = $id->focusKeyword;
         $copyProduct->titleSeo = $id->name;
         $copyProduct->slug = $id->slug.'-copy_2';
@@ -434,7 +472,7 @@ class ProductController extends Controller
     {
         //dd($id -> id);
 
-        return view('customer.runy.products.show' , compact('id'));
+        return view('customer.stone-en.products.show' , compact('id'));
     }
 
     public function shop()
@@ -446,14 +484,14 @@ class ProductController extends Controller
     {
         $products = Product::where('slug' , $slug)->first();
         $id = $products ;
-        return view('customer.runy.products.show' , compact('id'));
+        return view('customer.stone-en.products.show' , compact('id'));
     }
     public function showIdPro()
     {
         $id_product = $_REQUEST['id'];
         $products = Product::where('id' , $id_product)->first();
         $id = $products ;
-        return view('customer.runy.products.show' , compact('id'));
+        return view('customer.stone-en.products.show' , compact('id'));
     }
 
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePicsSlideshowsTable extends Migration
@@ -22,6 +23,11 @@ class CreatePicsSlideshowsTable extends Migration
             $table->string('link')->nullable();
             $table->timestamps();
         });
+        DB::table('pics_slideshows')->insert([
+            'slideshow_id' => 1 ,
+            'urlpic' => 'http://tarahsite.net/wp-content/themes/tarahsite-V-4/img/web-s2.jpg' ,
+            'link' => 'google.com'
+        ]);
     }
 
     /**

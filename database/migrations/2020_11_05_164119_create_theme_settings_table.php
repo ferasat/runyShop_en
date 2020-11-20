@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateThemeSettingsTable extends Migration
@@ -32,6 +33,10 @@ class CreateThemeSettingsTable extends Migration
             $table->string('banner3url')->nullable();
             $table->timestamps();
         });
+
+        DB::table('theme_settings')->insert([
+            'slide_id' => 1 ,
+        ]);
     }
 
     /**

@@ -64,7 +64,7 @@
 
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">تصویر نوشته</h4>
@@ -82,57 +82,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="mt-0 header-title">گالری تصاویر نوشته</h4>
-                        <p class="text-muted m-b-10">
-                            تصاویر محصول را بهتر است که در ابعاد 800*800 پیکسل (بصورت مربعی) بارگذاری کنید .
-                        </p>
-
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 1
-                                </p>
-                                <div class="fallback">
-                                    <input name="gallery1" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 1">
-                                </div>
-
-                            </div>
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 2
-                                </p>
-                                <div class="fallback">
-                                    <input name="gallery2" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 2">
-                                </div>
-
-                            </div>
-
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 3
-                                </p>
-                                <div class="fallback">
-                                    <input name="gallery3" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 3">
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-4">
+            <div class="col-3">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">دستبندی نوشته</h4>
@@ -161,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-6">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">سئو : (این بخش اختیاری هست)</h4>
@@ -204,9 +154,9 @@
                             <div class="col-sm-2 col-form-label ">در چه وضعیتی منشر شود :</div>
                             <div class="col-sm-10">
                                 <select class="custom-select" name="statusPublish" required>
-                                    <option value="انتشار" selected>انتشار</option>
-                                    <option value="برای بررسی">برای بررسی</option>
-                                    <option value="پیش نویس">پیش نویس</option>
+                                    <option value="publish" selected>publish</option>
+                                    <option value="forCheck">for Check</option>
+                                    <option value="draft">draft</option>
                                 </select>
                             </div>
                         </div>

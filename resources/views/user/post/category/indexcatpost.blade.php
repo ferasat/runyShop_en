@@ -14,21 +14,21 @@
                     <form action="{{ asset(route('saveCatPost')) }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label>نام دستبندی</label>
+                            <label>category</label>
                             <input type="text" name="name" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label>نامک (url)</label>
+                            <label>slug</label>
                             <input type="text" name="url" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label>توضیحات </label>
+                            <label>description </label>
                             <input type="text" name="description" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label> ارث بری (سردسته) </label>
+                            <label> Inherited </label>
                             <select name="Inherited" class="form-control">
-                                <option value="سردسته">سردسته</option>
+                                <option value="masterCat">سردسته</option>
                                 @foreach($allCategory as $cat )
                                     <option value="{{ $cat -> id }}">{{ $cat -> name}}</option>
                                 @endforeach
@@ -39,7 +39,7 @@
                             <input type="text" name="focusKeyword" class="form-control" value="">
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light">ذخیره کن</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light">Save</button>
                     </form>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
                     @foreach($allCategory as $cats)
-                        @if($cats-> Inherited == 'سردسته')
+                        @if($cats-> Inherited == 'masterCat')
                             <div class="catg">
                                 <a target="_blank" class="maincat" href="{{ asset('/blog/post/category/'.$cats -> id) }}">{{ $cats -> name }}</a>
                                 <span>

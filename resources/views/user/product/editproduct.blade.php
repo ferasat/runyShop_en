@@ -10,14 +10,14 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="text-muted">نام محصول </h6>
+                        <h6 class="text-muted">Product Name :</h6>
                         <p class="text-muted m-b-15">
                             نام محصول را در 175 واژه بنویسید :
                         </p>
                         <input type="text" class="form-control" maxlength="175" name="name" value="{{ $id -> name }}"
                                required/>
                         <p class="text-muted m-b-15">
-                            لینک محصول :
+                            slug :
                         </p>
                         <input type="text" class="form-control" maxlength="175" name="slug" value="{{ $id -> slug }}"/>
                     </div>
@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <div class="row">
+        {{--<div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -131,10 +131,32 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted">ADVANTAGES : </h6>
+                        <textarea name="description" id="description"
+                                  class="summernote">{!! $id -> description !!}</textarea>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted">FINISHES : </h6>
+                        <textarea name="description2" id="description2"
+                                  class="summernote">{!! $id -> description2 !!}</textarea>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">تصویر محصول</h4>
@@ -154,82 +176,29 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-8">
-                <div class="card">
+            <div class="col-6">
+                <div class="card m-b-30">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">گالری تصاویر محصول</h4>
+                        <h4 class="mt-0 header-title">تصویر پسزمینه محصول :</h4>
                         <p class="text-muted m-b-30">
-                            تصاویر محصول را بهتر است که در ابعاد 800*800 پیکسل (بصورت مربعی) بارگذاری کنید .
+                            تصویر محصول را بهتر است که در ابعاد 800*1500 پیکسل  بارگزاری کنید .
                         </p>
 
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 1
-                                </p>
-                                <div class="fallback">
-                                    @if(isset($galleryPics[1]))
-                                        <img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;"
-                                             src="{{ asset($galleryPics[1]) }}" data-holder-rendered="true">
-                                        <input type="hidden" name="oldGallery1" value="{{ $galleryPics[1] }}">
-                                    @endif
-                                    <input name="gallery1" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 1">
-                                </div>
+                        <div class="m-b-30">
 
-                            </div>
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 2
-                                </p>
-                                <div class="fallback">
-                                    @if(isset($galleryPics[2]))
-                                        <img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;"
-                                             src="{{ asset($galleryPics[2]) }}" data-holder-rendered="true">
-                                        <input type="hidden" name="oldGallery2" value="{{ $galleryPics[2] }}">
-                                    @endif
-                                    <input name="gallery2" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 2">
-                                </div>
-
-                            </div>
-
-                            <div class="col-4">
-                                <p class="text-muted m-b-10">
-                                    تصویر 3
-                                </p>
-                                <div class="fallback">
-                                    @if(isset($galleryPics[3]))
-                                        <img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;"
-                                             src="{{ asset($galleryPics[3]) }}" data-holder-rendered="true">
-                                        <input type="hidden" name="oldGallery3" value="{{ $galleryPics[3] }}">
-                                    @endif
-                                    <input name="gallery3" multiple="multiple" type="file" class="form-control"
-                                           placeholder="شماره 3">
-                                </div>
-
+                            <div class="fallback">
+                                @if(isset($id -> bgProduct))
+                                    <img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;"
+                                         src="{{ asset($id -> bgProduct) }}" data-holder-rendered="true">
+                                @endif
+                                <input name="bgProduct" type="file" class="form-control">
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="text-muted">توضیحات کامل برای محصول </h6>
-                        <textarea name="description" id="description"
-                                  class="summernote">{!! $id -> description !!}</textarea>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-4">
+            <div class="col-6">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">دستبندی محصول</h4>
@@ -261,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-6">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">سئو : (این بخش اختیاری هست)</h4>
@@ -314,9 +283,9 @@
                             <div class="col-sm-10">
                                 <select class="custom-select" name="statusPublish">
                                     <option selected="{{ $id -> statusPublish }}">{{ $id -> statusPublish }}</option>
-                                    <option value="انتشار">انتشار</option>
-                                    <option value="برای بررسی">برای بررسی</option>
-                                    <option value="پیش نویس">پیش نویس</option>
+                                    <option value="publish" selected>انتشار</option>
+                                    <option value="forCheck">برای بررسی</option>
+                                    <option value="draft">پیش نویس</option>
                                 </select>
                             </div>
                         </div>

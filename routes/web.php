@@ -26,7 +26,7 @@ Route::group(['prefix' => '/dashboard'], function () {
 
 //  ---------- SlideShow ---------
 Route::group(['prefix' => '/dashboard/slideshow'], function () {
-    Route::get('/', 'SlideShowController@index')->name('listSlides');
+    Route::get('/', 'SlideShowController@index')->name('listSlides')->middleware('status');
     Route::get('/new', 'SlideShowController@new')->name('newSlide');
     Route::post('/new', 'SlideShowController@save')->name('saveNewSlide');
     Route::get('/delete/{id}', 'SlideShowController@delete');
@@ -45,14 +45,14 @@ Route::group(['prefix' => '/dashboard/profile'], function () {
 
 //   ------------   Product -----
 Route::group(['prefix' => '/dashboard/product'], function () {
-    Route::get('/', 'ProductController@index')->name('listProduct');
-    Route::get('/new', 'ProductController@new');
-    Route::post('/store', 'ProductController@store');
-    Route::get('/edit/{id}', 'ProductController@edit');
-    Route::post('/update', 'ProductController@update');
-    Route::get('/delete/{id}', 'ProductController@delete')->name('deleteProduct');
-    Route::get('/copy/{id}', 'ProductController@copy');
-    Route::get('/category', 'ProductController@category');
+    Route::get('/', 'ProductController@index')->name('listProduct')->middleware('status');
+    Route::get('/new', 'ProductController@new')->middleware('status');
+    Route::post('/store', 'ProductController@store')->middleware('status');
+    Route::get('/edit/{id}', 'ProductController@edit')->middleware('status');
+    Route::post('/update', 'ProductController@update')->middleware('status');
+    Route::get('/delete/{id}', 'ProductController@delete')->name('deleteProduct')->middleware('status');
+    Route::get('/copy/{id}', 'ProductController@copy')->middleware('status');
+    Route::get('/category', 'ProductController@category')->middleware('status');
 });
 
 Route::group(['prefix' => '/product'], function () {
@@ -76,19 +76,20 @@ Route::group(['prefix' => '/cart'], function () {
 
 //   ------------   Settings -----
 Route::group(['prefix' => '/dashboard/settings'], function () {
-    Route::get('/', 'SettingController@index')->name('publicSettings');
-    Route::post('/publicSettings/save', 'SettingController@publicSave')->name('publicSettingsSave');
+    Route::get('/', 'SettingController@index')->name('publicSettings')->middleware('status');
+    Route::post('/publicSettings/save', 'SettingController@publicSave')->name('publicSettingsSave')->middleware('status');
 
-    Route::get('/HomePage', 'ThemeController@HomePage')->name('setHomePage');
+    Route::get('/HomePage', 'ThemeController@HomePage')->name('setHomePage')->middleware('status');
     Route::post('/HomePage/save', 'ThemeController@update')->name('saveHomePage');
 });
 
 ///  -------------- Category Product ------------
 Route::group(['prefix' => '/dashboard/category'], function () {
-    Route::get('/', 'CategoryProductCotroller@index')->name('catPro');
-    Route::post('/save', 'CategoryProductCotroller@save')->name('saveCatPro');
-    Route::get('/delete/{id}', 'CategoryProductCotroller@delete');
-    Route::get('/edit/{id}', 'CategoryProductCotroller@edit');
+    Route::get('/', 'CategoryProductCotroller@index')->name('catPro')->middleware('auth')->middleware('status');
+    Route::post('/save', 'CategoryProductCotroller@save')->name('saveCatPro')->middleware('status');
+    Route::get('/delete/{id}', 'CategoryProductCotroller@delete')->middleware('status');
+    Route::get('/edit/{id}', 'CategoryProductCotroller@edit')->middleware('status');
+    Route::post('/update/', 'CategoryProductCotroller@updateCat')->middleware('status')->name('updateCatPro');
 });
 
 ///  -------------- Category Product For Customer------------
@@ -99,14 +100,15 @@ Route::group(['prefix' => '/cat-product'], function () {
 
 ///  -------------- Post For User ------------
 Route::group(['prefix' => '/dashboard/posts'], function () {
-    Route::get('/', 'PostController@index')->name('indexPost');
+    Route::get('/', 'PostController@index')->name('indexPost')->middleware('status');
     Route::get('/new', 'PostController@new')->name('newPost');
-    Route::post('/save', 'PostController@save')->name('savePost');
+    Route::post('/save', 'PostController@save')->name('savePost')->middleware('status');
     Route::get('/edit/{id}', 'PostController@edit');
-    Route::post('/update', 'PostController@update')->name('update');
+    Route::post('/update', 'PostController@update')->name('update')->middleware('status');
     Route::get('/copy/{id}', 'PostController@copy');
     Route::get('/delete/{id}', 'PostController@delete');
-    Route::get('/category', 'PostController@category')->name('categoryPost');
+
+    Route::get('/category', 'PostController@category')->name('categoryPost')->middleware('status');
     Route::post('/category/saveCat', 'PostController@saveCat')->name('saveCatPost');
     Route::get('/category/delete/{id}', 'PostController@delCat');
     Route::get('/category/edit/{id}', 'PostController@editCat');
@@ -128,11 +130,11 @@ Route::group(['prefix' => '/s'], function () {
 
 /// ----------------- Page For User  -----------------
 Route::prefix('/dashboard/pages')->middleware('auth')->group( function () {
-    Route::get('/', 'PageController@index')->name('indexPage');
-    Route::get('/new', 'PageController@newPage')->name('newPage');
-    Route::post('/save', 'PageController@save')->name('savePage');
+    Route::get('/', 'PageController@index')->name('indexPage')->middleware('status');
+    Route::get('/new', 'PageController@newPage')->name('newPage')->middleware('status');
+    Route::post('/save', 'PageController@save')->name('savePage')->middleware('status');
     Route::get('/edit/{id}', 'PageController@edit');
-    Route::post('/update', 'PageController@update')->name('updatePage');
+    Route::post('/update', 'PageController@update')->name('updatePage')->middleware('status');
     Route::get('/copy/{id}', 'PageController@copy');
     Route::get('/delete/{id}', 'PageController@delete');
 });

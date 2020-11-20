@@ -12,30 +12,32 @@
     <!-- App Icons -->
     <link rel="shortcut icon" href="{{ asset('themes/user/horizontal-rtl/assets/images/icon.png') }}">
 
-    @if(isset($alertify))
-        <!-- Alertify css -->
-            <link href="{{ asset('themes/user/plugins/alertify/css/alertify.css') }}" rel="stylesheet" type="text/css">
-    @endif
-    <!-- App css -->
+@if(isset($alertify))
+    <!-- Alertify css -->
+        <link href="{{ asset('themes/user/plugins/alertify/css/alertify.css') }}" rel="stylesheet" type="text/css">
+@endif
+<!-- App css -->
     <link href="{{ asset('themes/user/horizontal-rtl/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('themes/user/horizontal-rtl/assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('themes/user/horizontal-rtl/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
-    @if(isset($editor))
-        <!-- Summernote css -->
-        <link href="{{ asset('themes/user/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet" />
-    @endif
-    @if(isset($dropzone))
+@if(isset($editor))
+    <!-- Summernote css
+        <link href="{{ asset('themes/user/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet" />-->
+        <script src="https://cdn.tiny.cloud/1/zkwqgv2utmlq7ma49nfzsgfisxlymkqb5kp5jhmkok84i183/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({selector:'textarea'});</script>
+@endif
+@if(isset($dropzone))
     <!-- Dropzone css -->
         <link href="{{ asset('themes/user/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css">
-    @endif
-    @if(isset($dataTables))
-        <!-- DataTables -->
-            <link href="{{ asset('themes/user/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-            <link href="{{ asset('themes/user/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+@endif
+@if(isset($dataTables))
+    <!-- DataTables -->
+        <link href="{{ asset('themes/user/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('themes/user/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
-            <!-- Responsive datatable examples -->
-            <link href="{{ asset('themes/user/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('themes/user/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     @endif
 
 
@@ -59,8 +61,8 @@
 
 <div class="header-bg">
     <!-- Navigation Bar-->
-    @include('layouts.user.topnav')
-    <!-- End Navigation Bar-->
+@include('layouts.user.topnav')
+<!-- End Navigation Bar-->
 
 </div>
 <!-- header-bg -->
@@ -81,7 +83,7 @@
         <div class="row">
             <div class="col-12">
                 رانی شاپ <i class="mdi mdi-heart text-danger"></i> <span class="d-none d-md-inline-block"> کاری از تیم <a
-                        href="https://tarahsite.net/">TarahSite.Net</a></span>
+                            href="https://tarahsite.net/">TarahSite.Net</a></span>
             </div>
         </div>
     </div>
@@ -98,7 +100,7 @@
 
 <!--Summernote js-->
 @if(isset($editor))
-    <script src="{{ asset('themes/user/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+{{--    <script src="{{ asset('themes/user/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <script src="{{ asset('themes/user/horizontal-rtl/assets/pages/form-advanced.js') }}"></script>
     <script src="{{ asset('themes/user/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
@@ -120,7 +122,7 @@
                 name:'description'
             });
         });
-    </script>
+    </script>--}}
 @endif
 
 @if(isset($dropzone))

@@ -14,29 +14,29 @@
                     <form action="{{ asset(route('saveCatPro')) }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label>نام دستبندی</label>
+                            <label>Category Name</label>
                             <input type="text" name="name" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label>نامک (url)</label>
+                            <label>slug :</label>
                             <input type="text" name="slug" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label>توضیحات </label>
-                            <input type="text" name="description" class="form-control" value="">
+                            <label>description </label>
+                            <textarea type="text" name="description" class="form-control" ></textarea>
                         </div>
                         <div class="form-group">
                             <label> ارث بری (سردسته) </label>
                             <select name="Inherited" class="form-control">
-                                <option value="سردسته">سردسته</option>
+                                <option value="masterCat">سر دسته</option>
                                 @foreach($allCategory as $cat )
                                     <option value="{{ $cat -> id }}">{{ $cat -> name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>برچسب دستبندی <span class="small">( کلمات را با / از هم جدا کنید)</span></label>
-                            <input type="text" name="focusKeyword" class="form-control" value="">
+                            <label>Picture : <span class="small">1300*400</span></label>
+                            <input type="file" name="picture" class="form-control" value="">
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light">ذخیره کن</button>
@@ -48,7 +48,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
                     @foreach($allCategory as $cats)
-                        @if($cats-> Inherited == 'سردسته')
+                        @if($cats-> Inherited == 'masterCat')
                             <div class="catg">
                                 <a target="_blank" class="maincat" href="{{ asset('/cat-product?id='.$cats -> id) }}">{{ $cats -> name }}</a>
                                 <span>

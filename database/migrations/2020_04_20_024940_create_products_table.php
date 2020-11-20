@@ -21,7 +21,9 @@ class CreateProductsTable extends Migration
             $table->longText('short')->nullable(); /// توضیحات کوتاه محصول
             $table->integer('specialPin')->default('0');  /// هر عدد یه معنی : 0 معمولی - 1 خاص و پین شده
             $table->longText('description')->nullable(); // توضیحات کامل محصول
+            $table->longText('description2')->nullable(); // توضیحات کامل محصول
             $table->string('picture')->nullable(); /// تصویر اصلی یا شاخص محصول
+            $table->string('bgProduct')->nullable(); /// تصویر اصلی یا شاخص محصول
             $table->string('gallery')->nullable(); // تصاویر محصول
             $table->integer('purchasePrice')->nullable(); /// قیمت خرید
             $table->integer('price')->nullable(); /// قیمت فروش

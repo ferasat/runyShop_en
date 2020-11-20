@@ -17,7 +17,7 @@ class CreateCategoryPostsTable extends Migration
         Schema::create('category_posts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('picture')->nullable();
             $table->string('icon')->nullable();
             $table->enum('statusMaster' , ['yes' , 'no'])->default('yes'); // سردسته هست یا نه
@@ -26,7 +26,7 @@ class CreateCategoryPostsTable extends Migration
             $table->enum('statusPublish', ['forCheck', 'publish' , 'draft'])->default('publish')->nullable();
             $table->string('focusKeyword')->nullable(); // عبارت کلیدی کانونی
             $table->string('titleSeo')->nullable(); // عنوان سئو
-            $table->string('url')->unique()->index()->nullable(); // نامک
+            $table->string('slug')->unique()->index()->nullable(); // نامک
             $table->string('metaDescription')->nullable(); // توضیح متا
             $table->timestamps();
         });
