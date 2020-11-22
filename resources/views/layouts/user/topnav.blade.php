@@ -170,9 +170,7 @@
                     <li class="has-submenu">
                         <a href="#"><i class="dripicons-archive"></i>  سفارشات <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                         <ul class="submenu">
-                            <li><a href="{{ asset('/dashboard/product') }}">همه سفارشات </a></li>
-                            <li><a href="{{ asset('/dashboard/product/new') }}"> سفارشات جدید</a></li>
-                            <li><a href="{{ asset('/dashboard/product') }}">سفارشات انجام شده</a></li>
+                            <li><a href="{{ asset(route('indexOffLine')) }}">همه سفارشات </a></li>
                         </ul>
                     </li>
 

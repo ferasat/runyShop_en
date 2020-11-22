@@ -9,8 +9,9 @@ class OflineOrderController extends Controller
 {
     public function index()
     {
-        $allOrder = OflineOrder::all();
-        return view('user.order.index', compact('allOrder'));
+        $allOrder = OflineOrder::all()->sortByDesc('id');
+        $titlePage = 'Orders Offline';
+        return view('user.order.indexOffline', compact('allOrder' , 'titlePage'));
     }
 
     public function save()
@@ -33,6 +34,24 @@ class OflineOrderController extends Controller
         $orderOff -> note = '-' ;
         $orderOff -> save() ;
 
+        return '<h1>Thank You .<br>
+You will be contacted as soon as possible.</h1>';
 
+    }
+
+    public function calledd()
+    {
+        $id = $_REQUEST['id'];
+        $order = OflineOrder::find($id);
+        $order -> status = 'Called';
+        $order -> save();
+    }
+
+    public function notcall()
+    {
+        $id = $_REQUEST['id'];
+        $order = OflineOrder::find($id);
+        $order -> status = 'Not Call';
+        $order -> save();
     }
 }

@@ -46,8 +46,8 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div id="ordeerOffLine">
-                                        <div class="modal-body">
+                                    <div >
+                                        <div class="modal-body" id="ordeerOffLine">
 
                                             <div class="form-group">
                                                 <label for="fname">Full Name</label>

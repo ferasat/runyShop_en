@@ -70,10 +70,26 @@
     </section>
 
     <section class="videos">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 pad-0">
+                    <div class="videoImg" data-toggle="modal" data-target="#videoModel">
+                        <img class="w-100" src="{{asset('themes/customer/stone/img/video-pic.jpg')}}" alt="">
+                    </div>
+                    <div class="modal fade" id="videoModel" tabindex="-1" aria-labelledby="videoModelLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <iframe data-image="{{asset('themes/customer/stone/img/video-pic.jpg')}}" width="100%" height="315" src="https://www.youtube-nocookie.com/embed/6RXTcdvS0-w" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="video">
-            <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/6RXTcdvS0-w" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+
         </div>
     </section>
 

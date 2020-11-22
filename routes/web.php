@@ -123,6 +123,12 @@ Route::group(['prefix' => '/blog'], function () {
     Route::get('/cat-post', 'PostController@showCat');
 });
 
+///  --------------- Off Line Order --------------
+Route::group(['prefix' => '/dashboard/offlineOrder'], function () {
+    Route::get('/', 'OflineOrderController@index')->name('indexOffLine');
+    Route::get('/calledd', 'OflineOrderController@calledd')->name('calledd');
+    Route::get('/notcall', 'OflineOrderController@notcall')->name('notcall');
+});
 Route::group(['prefix' => '/offlineOrder'], function () {
     Route::get('/save/', 'OflineOrderController@save');
 });

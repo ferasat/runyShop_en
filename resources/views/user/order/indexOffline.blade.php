@@ -18,50 +18,49 @@
                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>عنوان </th>
-                            <th>دستبندی</th>
-                            <th>برچسب</th>
-                            <th>کاربر</th>
-                            <th>تاریخ انتشار</th>
+                            <th>Name </th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th>product</th>
+                            <th>Date</th>
                         </tr>
                         </thead>
 
 
                         <tbody>
-                        @foreach($allPosts as $post)
-                        <tr>
-                            <td>
-                                <a href="{{ asset('/dashboard/posts/edit/'.$post -> id)  }}">{{ $post -> name }}</a><br>
-                                <small>
-                                    <a href="{{ asset('/dashboard/posts/edit/'.$post -> id)  }}" class="badge badge-primary waves-effect waves-light" >ویرایش</a>
-                                    <a href="{{ asset('/dashboard/posts/delete/'.$post -> id) }}" class="badge badge-danger waves-effect waves-light" >حذف</a>
-                                    <a href="{{ asset('/dashboard/posts/copy/'.$post -> id) }}" class="badge badge-warning waves-effect waves-light">رونوشت از نوشته</a>
-                                    <a href="{{ asset('/blog/post/'.$post -> slug) }}" target="_blank" class="badge badge-warning waves-effect waves-light">دیدن نوشته</a>
-
-                                </small>
-                            </td>
-                            <td>
-                                @php
-                                    $cat_id = $post -> category_id ;
-                                    $name_cat = \App\CategoryPost::where('id' , $cat_id)-> first('name');
-                                    if ($name_cat == null){
-                                        echo 'دستبندی نشده';
-                                    }else{
-                                        echo $name_cat->name ;
-                                    }
-
-                                @endphp
-                            </td>
-                            <td>{{ $post -> price }}</td>
-                            <td>
-                                @php
-                                $user_id = $post -> user_id ;
-                                $name_user = \App\User::where('id' , $user_id)-> first('name');
-                                echo $name_user->name ;
-                                @endphp
-                            </td>
-                            <td>{{ $post -> created_at }}</td>
+                        @foreach($allOrder as $order)
+                        <tr class="btnModel"  data-toggle="modal" data-target="#modal{{$order->id}}">
+                            <td >{{ $order -> name }}</td>
+                            <td>{{ $order -> phone }} </td>
+                            <td id="status{{$order->id}}">{{ $order -> status }} </td>
+                            <td>{{ $order -> product }} </td>
+                            <td>{{ $order -> created_at }}</td>
                         </tr>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal{{$order->id}}" tabindex="-1" aria-labelledby="modal{{$order->id}}Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal{{$order->id}}Label">Customer : {{ $order -> name }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul>
+                                            <li>Phone : {{ $order -> phone }} </li>
+                                            <li>Product : <a target="_blank" href="{{ asset('/product?id='.$order->product_id) }}">{{ $order -> product }}</a> </li>
+                                            <li>Value : {{ $order -> value }} </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" onclick="calledd({{$order->id}})">Was called</button>
+                                        <button type="button" class="btn btn-danger" onclick="notcall({{$order->id}})">Not called</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                         </tbody>
                     </table>

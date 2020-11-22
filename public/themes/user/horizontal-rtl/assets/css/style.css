@@ -3298,6 +3298,9 @@ table.focus-on tbody tr.focused td {
 .max-w100{
   max-width: 100%;
 }
+.btnModel {
+  cursor: pointer;
+}
 /*div#boxPicSlid {
     display: block;
     width: 100%;

@@ -5,6 +5,7 @@ function addOffLineOrder() {
     var cell = document.getElementById('cell').value;
     var fname = document.getElementById('fname').value;
     var btnOrderOffline = document.getElementById('btnOrderOffline');
+    var ordeerOffLine = document.getElementById('ordeerOffLine');
     var url = window.origin+'/offlineOrder/save?product_id='+product_id+'&&product='+product+'&&value='+value+'&&cell='+cell+'&&fname='+fname ;
     console.log(fname);
     if ((fname === '') || (cell === '')){
@@ -16,6 +17,7 @@ function addOffLineOrder() {
             if ((request.readyState === 4) && (request.status === 200)) {
                 console.log(request);
                 btnOrderOffline.innerHTML = 'Registered !';
+                ordeerOffLine.innerHTML = request.responseText ;
             }else {
                 btnOrderOffline.innerHTML = 'Loading';
             }

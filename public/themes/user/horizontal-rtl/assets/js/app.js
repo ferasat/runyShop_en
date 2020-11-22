@@ -137,3 +137,33 @@ var slidJs = {
     }
 };
 
+
+function notcall(id){
+    var status = 'status'+id;
+    var url = window.origin+'/dashboard/offlineOrder/notcall'
+    var request = new XMLHttpRequest();
+    request.open('get',url+'?id='+id);
+    request.onreadystatechange = function (){
+        if ((request.readyState === 4) && (request.status === 200)) {
+            console.log(request);
+            status.innerHTML = '<strong class="snotcall">Not Call</strong>';
+        }
+    };
+    request.send();
+}
+function calledd(id){
+    var status = 'status'+id;
+    alert(status);
+    console.log(status);
+    var url = window.origin+'/dashboard/offlineOrder/calledd'
+    var request = new XMLHttpRequest();
+    request.open('get',url+'?id='+id);
+    request.onreadystatechange = function (){
+        if ((request.readyState === 4) && (request.status === 200)) {
+            console.log(request);
+            status.innerHTML = '<strong class="snotcall">Called</strong>';
+        }
+    };
+    request.send();
+}
+

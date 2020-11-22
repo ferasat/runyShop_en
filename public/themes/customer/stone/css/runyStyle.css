@@ -100,7 +100,9 @@ li.social-source-icon img {
     border-radius: 50%;
     width: 43px;
 }
-
+.videoImg {
+    cursor: pointer;
+}
 
 
 
