@@ -11,7 +11,7 @@
                     <h4 class="mt-0 header-title">دستبندی های محصولات</h4>
                     <p class="text-muted m-b-30">.</p>
 
-                    <form action="{{ asset(route('saveCatPro')) }}" method="post">
+                    <form action="{{ asset(route('saveCatPro')) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Category Name</label>
@@ -58,10 +58,9 @@
                             </div>
                             <ul class="subcatul">
                                 @foreach($allCategory as $subCats)
-
                                     @if( $subCats -> Inherited == $cats -> id )
                                         <li class="subcatli">
-                                            <a target="_blank" href="{{ asset('/cat-product?id='.$cats -> id) }}">{{ $subCats -> name }}</a>
+                                            <a target="_blank" href="{{ asset('/cat-product?id='.$subCats -> id) }}">{{ $subCats -> name }}</a>
                                             <span class="subcata">
                                                     <a style="color: red ;" class="small" href="{{ asset('/dashboard/category/delete/'.$subCats -> id) }}">حذف</a>
                                                     <a style="color: #4A148C" class="small" href="{{ asset('/dashboard/category/edit/'.$subCats -> id) }}"> <b> ویرایش</b></a>

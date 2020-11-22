@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Filemanager;
+use App\FileManager;
 use App\Page;
 use App\Post;
 use App\Setting;
@@ -355,7 +355,7 @@ class PageController extends Controller
     public function showSlug(Page $page)
     {
         $id = $page;
-        return view('customer.personal-y.page.showPage' , compact('id'));
+        return view('customer.stone-en.page.showPage' , compact('id'));
     }
 
 }

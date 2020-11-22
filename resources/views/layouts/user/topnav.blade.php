@@ -186,6 +186,14 @@
                     </li>
 
                     <li class="has-submenu">
+                        <a href="#"><i class="dripicons-archive"></i>  برگه ها <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                        <ul class="submenu">
+                            <li><a href="{{ asset(route('indexPage')) }}">همه برگه ها</a></li>
+                            <li><a href="{{ asset(route('newPage')) }}"> برگه جدید</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
                         <a href="#"><i class="dripicons-archive"></i>  اسلاید ساز <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                         <ul class="submenu">
                             <li><a href="{{ asset(route('listSlides')) }}">همه اسلاید ها</a></li>

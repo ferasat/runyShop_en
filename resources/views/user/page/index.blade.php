@@ -11,7 +11,7 @@
 
                     <h4 class="mt-0 header-title">{{ $titlePage }}</h4>
                     <p class="text-muted m-b-30">
-                        آخرین نوشته خود را می توانید در لیست زیر ببینید و آنها را مدیریت کنید .
+                        آخرین برگه خود را می توانید در لیست زیر ببینید و آنها را مدیریت کنید .
                     </p>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap"
@@ -54,9 +54,9 @@
                                         @endphp
                                     </td>
                                     <td>{{ $post -> created_at }}</td>
-                                    <td class="text-center">
+                                    <td class="text-center" width="250px">
                                         @if($post -> picture !== null)
-                                            <img src="{{ asset( $post -> picture ) }}" class="thumb200">
+                                            <img src="{{ asset( $post -> picture ) }}" class="mw-100">
                                         @else
                                             <img src="{{ asset('themes/user/horizontal-rtl/assets/images/sample.png') }}" class="thumb200">
                                         @endif

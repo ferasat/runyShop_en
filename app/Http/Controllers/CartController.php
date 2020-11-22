@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\OflineOrder;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -84,4 +85,6 @@ class CartController extends Controller
     {
 
     }
+
+
 }

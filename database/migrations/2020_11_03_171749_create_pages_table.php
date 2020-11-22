@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->integer('specialPin')->default('0');  /// هر عدد یه معنی : 0 معمولی - 1 خاص و پین شده
             $table->enum('formatPost' , ['text','video','gallery','dl-video','dl-file'])->default('text');  /// فرمت نمایش پست را نشان می دهد
             $table->enum('statusPublish', ['forCheck', 'publish' , 'draft'])->default('draft')->nullable();
+            $table->enum('mahfoz', ['no', 'yas' ])->default('no')->nullable();/// برای حفاظت از پاک شدن یا نشدن
             $table->string('user_id');
             $table->string('picture')->nullable();
             $table->longText('gallery')->nullable();
@@ -32,9 +33,22 @@ class CreatePagesTable extends Migration
 
 
         DB::table('pages')->insert([
-            'name' => 'اولین برگه' ,
+            'name' => 'first page' ,
             'user_id' => 1 ,
             'slug' => 'page1' ,
+            'mahfoz' => 'yes' ,
+            'statusPublish' => 'draft'
+        ]);
+        DB::table('pages')->insert([
+            'name' => 'About us' ,
+            'user_id' => 1 ,
+            'slug' => 'about-us' ,
+            'statusPublish' => 'publish'
+        ]);
+        DB::table('pages')->insert([
+            'name' => 'Content us' ,
+            'user_id' => 1 ,
+            'slug' => 'content-us' ,
             'statusPublish' => 'publish'
         ]);
     }

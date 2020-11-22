@@ -46,7 +46,7 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form>
+                                    <div id="ordeerOffLine">
                                         <div class="modal-body">
 
                                             <div class="form-group">
@@ -57,12 +57,9 @@
                                                 <label for="cell">Cell Phone</label>
                                                 <input type="number" class="form-control" id="cell">
                                             </div>
-                                            <div class="form-check">
-                                                <label>Does your number have WhatsApp?</label><br>
-                                                <input type="radio" name="whatsAppNumber" id="ry" value="Yes">
-                                                <label for="ry">Yes</label><br>
-                                                <input type="radio" name="whatsAppNumber" id="rn" value="No">
-                                                <label for="rn">No</label>
+                                            <div class="form-group">
+                                                <label for="value">Amount</label>
+                                                <input type="text" class="form-control" id="value">
                                             </div>
 
 
@@ -70,9 +67,11 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
-                                            <button type="button" class="btn color2">Register the order.</button>
+                                            <input type="hidden" id="product_id" value="{{ $id -> id }}">
+                                            <input type="hidden" id="product_name" value="{{ $id -> name }}">
+                                            <div type="button" id="btnOrderOffline" onclick="addOffLineOrder()" class="btn color2">Register the order.</div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

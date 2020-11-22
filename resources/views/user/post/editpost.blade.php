@@ -73,7 +73,7 @@
                         </p>
 
                         <div class="m-b-30">
-                            <div class="box-img"><img src="{{ asset($id -> picture) }}" alt="" class="img-thumbnail"></div>
+                            <div class="box-img"><img src="{{ asset($id -> picture) }}" alt="" class="max-w100"></div>
                             <div class="fallback">
                                 <input name="picture" type="file" class="form-control">
                             </div>

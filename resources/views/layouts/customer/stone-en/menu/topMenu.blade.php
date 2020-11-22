@@ -23,7 +23,10 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="/about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/content-us">Content Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -37,13 +40,13 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form class="iconsCell my-2 my-lg-0">
+                    <ul class="social-area">
+                        <li class="social-source-icon"><a onclick="window.open('https://wa.me/+34683316226')"><img src="{{ asset('themes/customer/stone/img/skype.jpg') }}" alt="Skype"></a></li>
+                        <li class="social-source-icon"><a onclick="window.open('https://wa.me/+34683316226')"><img src="{{asset('themes/customer/stone/img/whatsapp.jpg')}}" alt="whatsapp"></a></li>
+                    </ul>
                 </form>
             </div>
         </nav>

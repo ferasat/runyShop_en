@@ -20,7 +20,7 @@
                              alt="{{ $pic -> text }}">
                         @if($pic -> text !== null)
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>{{ $pic -> text }}</h5>
+                                <h5 class="bonus">{{ $pic -> text }}</h5>
                             </div>
                         @endif
                     </div>

@@ -123,6 +123,10 @@ Route::group(['prefix' => '/blog'], function () {
     Route::get('/cat-post', 'PostController@showCat');
 });
 
+Route::group(['prefix' => '/offlineOrder'], function () {
+    Route::get('/save/', 'OflineOrderController@save');
+});
+
 Route::group(['prefix' => '/s'], function () {
     Route::get('/', 'SearchController@general');
 });

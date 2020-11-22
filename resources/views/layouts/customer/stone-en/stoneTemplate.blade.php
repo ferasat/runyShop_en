@@ -20,6 +20,7 @@
     <script src="{{ asset('themes/customer/stone/js/jquery-3.5.1.slim.min.js') }}"></script>
     <script src="{{ asset('themes/customer/stone/js/popper.min.js') }}"></script>
     <script src="{{ asset('themes/customer/stone/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/runyShop.js') }}"></script>
     <script type="text/javascript" src="">
     </script>
 

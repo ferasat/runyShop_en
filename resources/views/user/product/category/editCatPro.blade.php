@@ -23,7 +23,7 @@
                         </div>
                         <div class="form-group">
                             <label>description </label>
-                            <textarea type="text" name="description" class="form-control" >{!! $id -> name !!}</textarea>
+                            <textarea type="text" name="description" class="form-control" >{!! $id -> description !!}</textarea>
                         </div>
                         <div class="form-group">
                             <label> ارث بری (سردسته) </label>
@@ -36,9 +36,9 @@
                         </div>
                         <div class="form-group">
                             <label>Picture : <span class="small">1300*400</span></label>
-                            @dd(asset($cat -> picture))
-                            @if($id -> picture == null)
-                                <img src="{{ asset($cat -> picture) }}" class="max-w100" alt="">
+
+                            @if($id -> picture !== null)
+                                <img src="{{ asset($id -> picture) }}" class="max-w100" alt="">
                                 <input type="file" name="picture" class="form-control" value="">
                             @else
                                 <input type="file" name="picture" class="form-control" value="">
